@@ -1,0 +1,1625 @@
+---
+comentarios: "si"
+---
+
+<!DOCTYPE html>
+<html lang="es" itemscope itemtype="http://schema.org/WebPage">
+		{% include head-post2.html %}
+
+
+		{% assign mantenimiento = 'no' %}
+	
+		
+		<body id="myBody" class="main-page has-push-menu yes-scroll">
+			<!-- partial:index.partial.html -->
+
+			{% assign habilitado = 0 %}
+			{% assign repro1 = page.reproductores_fembed | size %}
+			{% assign repro2 = page.reproductores_upstream | size %}
+
+			{% if repro1 > 0 %}
+
+			{% assign habilitado = 1 %}
+
+			{% endif %}
+
+			{% if repro2 > 0 %}
+
+			{% assign habilitado = 1 %}
+
+			{% endif %}
+
+			{% if habilitado == 1 %}
+
+				<div id="fb-root"></div>
+			
+
+				<input id="url" name="url" type="hidden" value="{{ site.url }}{{ site.baseurl }}{{page.url}}">
+				<input id="imagen_portada" name="imagen_portada" type="hidden" value="https://res.cloudinary.com/u4innovation43434/image/upload/v1585888950/nodisponible-min_s8zop8.jpg">
+				<div id="loader" class="loader" style="display:none;"></div>
+			
+				
+			
+								{% include svg-icons.html %}
+								<div class="header_pc" id="pc">  {% include header2.html %}</div>
+							
+      
+					{% if mantenimiento =='no' %}
+				   
+            <section class="content">
+             
+               
+                <main class="home"   style="    padding-top: 75px;" id="post" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+				
+						
+					<article role="article" class="post-content" itemprop="articleBody">
+						
+
+
+												<div class="modal fade" id="myModal" role="dialog">
+													<div class="modal-dialog">
+													
+														<!-- Modal content-->
+														<div class="modal-content">
+															<div class="modal-header">
+																<button type="button" class="close" data-dismiss="modal">&times;</button>
+																<h4 class="modal-title" style="font-size: 24px;">Reportar video</h4>
+															</div>
+															<div class="modal-body">
+																<form name="gform" id="gform" enctype="text/plain" action="https://docs.google.com/forms/d/e/1FAIpQLScI4h-WSg3_zKc2yhe5ONyYf2-K4YgmDjDo2gB3ph1bPj213A/formResponse?" target="hidden_iframe" onsubmit="submitted=true;">
+																	<div class="form-group">
+																		<label for="usr">Pelicula a reportarse: (*)</label>
+																		<input type="text" readonly="readonly"  class="form-control" name="entry.160335406" id="entry.160335406" value="{{page.title}}">
+																	</div>
+															
+																<div class="form-group">
+																		<label for="usr">Seleccione el motivo de tu reporte: (*)</label>
+																		<select name="entry.1946056948" id="entry.1946056948" class="form-control">
+																				<option value="Video caido">Video caido</option>
+																		<option value="No se visualiza la pelicula">No se visualiza la pelicula</option>
+																		
+																		<option value="Link de descargas caido">Link de descargas caido</option>
+																		<option value="Solicitar mejor calidad">Solicito mejor calidad</option>
+																	</select>
+																</div>
+																<div class="form-group">
+																		<label for="usr">Si desea, proporcione más información acerca del problema con este video: (Opcional)</label>
+																	<textarea style="resize: none;" placeholder="Escriba más información" class="form-control rounded-0" name="entry.257663063" id="entry.257663063"  rows="3"></textarea>	
+															 </div>
+																	 <div class="form-group" align="center">
+																		 <input type="submit" value="Enviar" class="btn btn-danger">
+																	</div>
+																</form>
+																<iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="if(submitted) {}"></iframe>
+															</div>
+											
+														</div>
+														
+													</div>
+
+												</div>
+	
+
+								
+												
+												<div id="grid" class="row">
+
+														<div class="col-md-12 col-xs-12 col-lg-1" style="padding:0;">
+
+														</div>
+										
+													 <div class="col-md-12 col-xs-12 col-lg-10" style="padding:0;">
+
+															<div id="brave" style="display: none;    margin: 10px;
+																	 padding: 0;" class="col-md-12 col-xs-12 col-lg-12">
+
+																	<div class="alert alert-danger alert-dismissible fade in">
+																			<a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+																			<strong>¿Te apareció alguna publicidad?</strong> Te recomendamos utilizar el navegador Brave para eliminar completamente los anuncios y mejores tu experiencia al utilizar BreakTimeTv, descárgalo dando click <a style="font-weight: bold;
+																			color: #cb134a;" href="https://brave.com/es/download/">Aquí</a>.
+																		</div>
+				
+				
+															</div>
+
+															<div class="col-md-12 col-xs-12 col-lg-12 disable-select" align="left">
+				
+																	<h1 class="top_h2_1"  id="titulo" itemprop="name">{{ page.title }} </h1>
+																			
+							
+																</div>
+					
+												   
+												
+					
+														
+					
+													 <div class="row">
+														   
+					
+															
+															<div class="col-md-12 col-xs-12 col-lg-12" style="padding: 0;">
+
+															
+					
+					
+																<div class="panel with-nav-tabs panel-primary">
+																		<div class="row">
+																				<div class="col-12 col-md-3 col-xs-12 col-lg-3">
+																				<div class="panel-heading">
+
+																				<ul class="nav nav-tabs">
+																						{% assign counter = 0 %}
+																								{% assign reproductor = page.reproductores_otros | size %}
+																								
+																								{% assign reproductor2 = page.reproductores_upstream | size %}
+		
+																								{% assign reproductor3 = page.reproductores_fembed | size %}
+																								
+		
+																								{% assign counter_reproductor = 0 %}
+																							
+																								
+		
+																								{% if  reproductor > 0 %}
+		
+																													{% assign counter_otros = 0 %}
+		
+																													{% for item in page.reproductores_otros %}
+																																						{% assign counter=counter | plus:1 %}
+																																						{% assign counter_otros=counter_otros | plus:1 %}
+
+																																						{% assign counter_otros2=counter_otros | minus: 1  %}
+		
+																																					{% if counter==1 %}
+																																							{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						<li ><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}} - {{page.reproductores_otros[counter_otros]}}  </a></li>
+																																						{%endif%}
+		
+																																						{% if counter == 3 %}
+		
+																																						{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																						<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+		
+																																						{%endif%}
+																																						{% if counter == 5 %}
+																																						{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																						<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+		
+																																					
+																																						 {%endif%}
+																																						 
+																																						 {% if counter == 7 %}
+																																						 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																						 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+		 
+																																					 
+																																							{%endif%}
+		
+																																							{% if counter == 9 %}
+																																							{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+		
+																																							 {% if counter == 11 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+		
+																																							 {% if counter == 13 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+		
+																																							 {% if counter == 15 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+																																							 {% if counter == 17 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+		
+																																							 {% if counter == 19 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+		
+																																							 {% if counter == 21 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+		
+																																							 {% if counter == 23 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+		
+																																							 {% if counter == 25 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+																							
+																														{% endfor %}
+		
+																														{% assign counter_upstream = 0 %}
+		
+		
+																														{% for item in page.reproductores_upstream %}
+																																				{% assign counter=counter | plus:1 %}
+																																				{% assign counter_upstream=counter_upstream | plus:1 %}
+
+																																				{% assign counter_upstream2=counter_upstream | minus: 1  %}
+																																				
+																																				{% if counter == 1 %}
+																																				{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																				<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																				{%endif%}
+																																				{% if counter == 3 %}
+																																				{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				
+																																				<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																			
+																																				 {%endif%}
+																																				 
+																																				 {% if counter == 5 %}
+																																				 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				
+																																				 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																			 
+																																					{%endif%}
+		
+																																					{% if counter == 7 %}
+																																					{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				
+																																					<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																				
+																																					 {%endif%}
+		
+																																					 {% if counter == 9 %}
+																																					 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				
+																																					<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																				
+																																					 {%endif%}
+		
+																																					 {% if counter == 11 %}
+																																					 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				
+																																					<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																				
+																																					 {%endif%}
+		
+																																					 {% if counter == 13 %}
+																																					 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				
+																																					<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																				
+																																					 {%endif%}
+		
+																																					 {% if counter == 15 %}
+																																					 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				
+																																					<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																				
+																																					 {%endif%}
+		
+																																					 {% if counter == 17 %}
+																																					 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				
+																																					<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																				
+																																					 {%endif%}
+		
+																																					 {% if counter == 19 %}
+																																					 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				
+																																					<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																				
+																																					 {%endif%}
+		
+																																					 {% if counter == 21 %}
+																																					 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				
+																																					<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																				
+																																					 {%endif%}
+		
+																																					 {% if counter == 23 %}
+																																					 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				
+																																					<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																				
+																																					 {%endif%}
+																														{% endfor %}
+		
+		
+																													{% assign counter_fembed = 0 %}
+		
+																													{% for item in page.reproductores_fembed %}
+																																						{% assign counter=counter | plus:1 %}
+																																						{% assign counter_fembed=counter_fembed | plus:1 %}
+
+																																						{% assign counter_fembed2=counter_fembed | minus: 1 %}
+																																						
+		
+																																					{% if counter==1 %}
+																																							{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}} - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+																																						{%endif%}
+		
+																																						{% if counter == 3 %}
+		
+																																						{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																						<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+		
+																																						{%endif%}
+																																						{% if counter == 5 %}
+																																						{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																						<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+		
+																																					
+																																						 {%endif%}
+																																						 
+																																						 {% if counter == 7 %}
+																																						 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																						 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+		 
+																																					 
+																																							{%endif%}
+		
+																																							{% if counter == 9 %}
+																																							{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+		
+																																							 {% if counter == 11 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+		
+																																							 {% if counter == 13 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+		
+																																							 {% if counter == 15 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+																																							 {% if counter == 17 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+		
+																																							 {% if counter == 19 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+		
+																																							 {% if counter == 21 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+		
+																																							 {% if counter == 23 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+		
+																																							 {% if counter == 25 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+																							
+																														{% endfor %}
+		
+		
+		
+		
+		
+		
+																								{%else%}
+		
+																								{% if  reproductor2 > 0 %}
+		
+																								{% assign counter_upstream = 0 %}
+		
+																								{% for item in page.reproductores_upstream %}
+																																	{% assign counter=counter | plus:1 %}
+																																	{% assign counter_upstream=counter_upstream | plus:1 %}
+																																	{% assign counter_upstream2=counter_upstream | minus: 1  %}
+		
+																																{% if counter==1 %}
+																																		{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																	<li ><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}} - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+																																	{%endif%}
+		
+																																	{% if counter == 3 %}
+		
+																																	{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																	
+																																	<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																	{%endif%}
+																																	{% if counter == 5 %}
+																																	{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																	
+																																	<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																
+																																	 {%endif%}
+																																	 
+																																	 {% if counter == 7 %}
+																																	 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																	
+																																	 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																 
+																																		{%endif%}
+		
+																																		{% if counter == 9 %}
+																																		{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																	
+																																		<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																	
+																																		 {%endif%}
+		
+																																		 {% if counter == 11 %}
+																																		 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																	
+																																		<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																	
+																																		 {%endif%}
+		
+																																		 {% if counter == 13 %}
+																																		 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																	
+																																		<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																	
+																																		 {%endif%}
+		
+																																		 {% if counter == 15 %}
+																																		 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																	
+																																		<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																	
+																																		 {%endif%}
+																																		 {% if counter == 17 %}
+																																		 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																	
+																																		<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																	
+																																		 {%endif%}
+		
+																																		 {% if counter == 19 %}
+																																		 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																	
+																																		<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																	
+																																		 {%endif%}
+		
+																																		 {% if counter == 21 %}
+																																		 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																	
+																																		<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																	
+																																		 {%endif%}
+		
+																																		 {% if counter == 23 %}
+																																		 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																	
+																																		<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																	
+																																		 {%endif%}
+		
+																																		 {% if counter == 25 %}
+																																		 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																	
+																																		<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+		
+																																	
+																																		 {%endif%}
+																		
+																									{% endfor %}
+		
+																									{% assign counter_otros = 0 %}
+		
+																									{% for item in page.reproductores_otros %}
+																																		{% assign counter=counter | plus:1 %}
+																																		{% assign counter_otros=counter_otros | plus:1 %}
+																																		{% assign counter_otros2=counter_otros | minus: 1  %}
+		
+																																	{% if counter==1 %}
+																																			{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																		<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}} - {{page.reproductores_otros[counter_otros]}}  </a></li>
+																																		{%endif%}
+		
+																																		{% if counter == 3 %}
+		
+																																		{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																		
+																																		<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+		
+																																		{%endif%}
+																																		{% if counter == 5 %}
+																																		{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																		
+																																		<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+		
+																																	
+																																		 {%endif%}
+																																		 
+																																		 {% if counter == 7 %}
+																																		 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																		
+																																		 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+		
+																																	 
+																																			{%endif%}
+		
+																																			{% if counter == 9 %}
+																																			{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																		
+																																			<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+		
+																																		
+																																			 {%endif%}
+		
+																																			 {% if counter == 11 %}
+																																			 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																		
+																																			<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+		
+																																		
+																																			 {%endif%}
+		
+																																			 {% if counter == 13 %}
+																																			 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																		
+																																			<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+		
+																																		
+																																			 {%endif%}
+		
+																																			 {% if counter == 15 %}
+																																			 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																		
+																																			<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+		
+																																		
+																																			 {%endif%}
+																																			 {% if counter == 17 %}
+																																			 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																		
+																																			<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+		
+																																		
+																																			 {%endif%}
+		
+																																			 {% if counter == 19 %}
+																																			 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																		
+																																			<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+		
+																																		
+																																			 {%endif%}
+		
+																																			 {% if counter == 21 %}
+																																			 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																		
+																																			<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+		
+																																		
+																																			 {%endif%}
+		
+																																			 {% if counter == 23 %}
+																																			 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																		
+																																			<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+		
+																																		
+																																			 {%endif%}
+		
+																																			 {% if counter == 25 %}
+																																			 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																		
+																																			<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+		
+																																		
+																																			 {%endif%}
+																			
+																										{% endfor %}
+		
+																									{% assign counter_fembed = 0 %}
+		
+		
+																									{% for item in page.reproductores_fembed %}
+																															{% assign counter=counter | plus:1 %}
+																															{% assign counter_fembed=counter_fembed | plus:1 %}
+
+																															{% assign counter_fembed2=counter_fembed | minus: 1  %}
+																															
+																															
+																															{% if counter == 1 %}
+																															{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																	
+																															<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+		
+																															{%endif%}
+																															{% if counter == 3 %}
+																															{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																															
+																															<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+		
+																														
+																															 {%endif%}
+																															 
+																															 {% if counter == 5 %}
+																															 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																															
+																															 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+		
+																														 
+																																{%endif%}
+		
+																																{% if counter == 7 %}
+																																{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																															
+																																<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+		
+																															
+																																 {%endif%}
+		
+																																 {% if counter == 9 %}
+																																 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																															
+																																<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+		
+																															
+																																 {%endif%}
+		
+																																 {% if counter == 11 %}
+																																 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																															
+																																<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+		
+																															
+																																 {%endif%}
+		
+																																 {% if counter == 13 %}
+																																 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																															
+																																<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+		
+																															
+																																 {%endif%}
+		
+																																 {% if counter == 15 %}
+																																 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																															
+																																<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+		
+																															
+																																 {%endif%}
+		
+																																 {% if counter == 17 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+		
+																																							 {% if counter == 19 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+		
+																																							 {% if counter == 21 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+		
+																																							 {% if counter == 23 %}
+																																							 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																						
+																																							<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			
+																																						
+																																							 {%endif%}
+		
+																									{% endfor %}
+		
+																									{% else %}
+		
+																										 {% if  reproductor3 > 0 %}
+																										 
+																										 {% assign counter_fembed = 0 %}
+		
+		
+																										 {% for item in page.reproductores_fembed %}
+																																 {% assign counter=counter | plus:1 %}
+																																 {% assign counter_fembed=counter_fembed | plus:1 %}
+
+																																 {% assign counter_fembed2=counter_fembed | minus: 1 %}
+																																 
+																																 
+																																 {% if counter == 1 %}
+																																 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																		 
+																																 <li ><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			 
+																																 {%endif%}
+																																 {% if counter == 3 %}
+																																 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																 
+																																 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			 
+																															 
+																																	{%endif%}
+																																	
+																																	{% if counter == 5 %}
+																																	{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																 
+																																	<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			 
+																																
+																																	 {%endif%}
+			 
+																																	 {% if counter == 7 %}
+																																	 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																 
+																																	 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			 
+																																 
+																																		{%endif%}
+			 
+																																		{% if counter == 9 %}
+																																		{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																 
+																																	 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			 
+																																 
+																																		{%endif%}
+			 
+																																		{% if counter == 11 %}
+																																		{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																 
+																																	 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			 
+																																 
+																																		{%endif%}
+			 
+																																		{% if counter == 13 %}
+																																		{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																 
+																																	 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			 
+																																 
+																																		{%endif%}
+			 
+																																		{% if counter == 15 %}
+																																		{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																 
+																																	 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+			 
+																																 
+																																		{%endif%}
+			 
+																																		{% if counter == 17 %}
+																																									{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																							 
+																																								 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+				 
+																																							 
+																																									{%endif%}
+			 
+																																									{% if counter == 19 %}
+																																									{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																							 
+																																								 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+				 
+																																							 
+																																									{%endif%}
+			 
+																																									{% if counter == 21 %}
+																																									{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																							 
+																																								 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+				 
+																																							 
+																																									{%endif%}
+			 
+																																									{% if counter == 23 %}
+																																									{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																							 
+																																								 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_fembed[counter_fembed2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_fembed[counter_fembed]}}  </a></li>
+				 
+																																							 
+																																									{%endif%}
+			 
+																										 {% endfor %}
+		
+																										 {% assign counter_otros = 0 %}
+		
+																										 {% for item in page.reproductores_otros %}
+																																			 {% assign counter=counter | plus:1 %}
+																																			 {% assign counter_otros=counter_otros | plus:1 %}
+																																			 {% assign counter_otros2=counter_otros | minus: 1  %}
+			 
+																																		 {% if counter==1 %}
+																																				 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																			 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}} - {{page.reproductores_otros[counter_otros]}}  </a></li>
+																																			 {%endif%}
+			 
+																																			 {% if counter == 3 %}
+			 
+																																			 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																			 
+																																			 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			 
+																																			 {%endif%}
+																																			 {% if counter == 5 %}
+																																			 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																			 
+																																			 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			 
+																																		 
+																																				{%endif%}
+																																				
+																																				{% if counter == 7 %}
+																																				{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																			 
+																																				<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			 
+																																			
+																																				 {%endif%}
+			 
+																																				 {% if counter == 9 %}
+																																				 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																			 
+																																				 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			 
+																																			 
+																																					{%endif%}
+			 
+																																					{% if counter == 11 %}
+																																					{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																			 
+																																				 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			 
+																																			 
+																																					{%endif%}
+			 
+																																					{% if counter == 13 %}
+																																					{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																			 
+																																				 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			 
+																																			 
+																																					{%endif%}
+			 
+																																					{% if counter == 15 %}
+																																					{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																			 
+																																				 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			 
+																																			 
+																																					{%endif%}
+																																					{% if counter == 17 %}
+																																					{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																			 
+																																				 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			 
+																																			 
+																																					{%endif%}
+			 
+																																					{% if counter == 19 %}
+																																					{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																			 
+																																				 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			 
+																																			 
+																																					{%endif%}
+			 
+																																					{% if counter == 21 %}
+																																					{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																			 
+																																				 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			 
+																																			 
+																																					{%endif%}
+			 
+																																					{% if counter == 23 %}
+																																					{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																			 
+																																				 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			 
+																																			 
+																																					{%endif%}
+			 
+																																					{% if counter == 25 %}
+																																					{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																			 
+																																				 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_otros[counter_otros2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_otros[counter_otros]}}  </a></li>
+			 
+																																			 
+																																					{%endif%}
+																				 
+																											 {% endfor %}
+		
+																											 {% assign counter_upstream = 0 %}
+		
+																											 {% for item in page.reproductores_upstream %}
+																																				 {% assign counter=counter | plus:1 %}
+																																				 {% assign counter_upstream=counter_upstream | plus:1 %}
+
+																																				 {% assign counter_upstream2=counter_upstream | minus: 1  %}
+					 
+																																			 {% if counter==1 %}
+																																					 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}} - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+																																				 {%endif%}
+					 
+																																				 {% if counter == 3 %}
+					 
+																																				 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				 
+																																				 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+					 
+																																				 {%endif%}
+																																				 {% if counter == 5 %}
+																																				 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				 
+																																				 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+					 
+																																			 
+																																					{%endif%}
+																																					
+																																					{% if counter == 7 %}
+																																					{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				 
+																																					<li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+					 
+																																				
+																																					 {%endif%}
+					 
+																																					 {% if counter == 9 %}
+																																					 {% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				 
+																																					 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+					 
+																																				 
+																																						{%endif%}
+					 
+																																						{% if counter == 11 %}
+																																						{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				 
+																																					 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+					 
+																																				 
+																																						{%endif%}
+					 
+																																						{% if counter == 13 %}
+																																						{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				 
+																																					 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+					 
+																																				 
+																																						{%endif%}
+					 
+																																						{% if counter == 15 %}
+																																						{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				 
+																																					 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+					 
+																																				 
+																																						{%endif%}
+																																						{% if counter == 17 %}
+																																						{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				 
+																																					 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+					 
+																																				 
+																																						{%endif%}
+					 
+																																						{% if counter == 19 %}
+																																						{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				 
+																																					 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+					 
+																																				 
+																																						{%endif%}
+					 
+																																						{% if counter == 21 %}
+																																						{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				 
+																																					 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+					 
+																																				 
+																																						{%endif%}
+					 
+																																						{% if counter == 23 %}
+																																						{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				 
+																																					 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+					 
+																																				 
+																																						{%endif%}
+					 
+																																						{% if counter == 25 %}
+																																						{% assign counter_reproductor=counter_reproductor | plus:1 %}
+																																				 
+																																					 <li><a id="opcion{{counter}}" onclick="setIframe('{{page.reproductores_upstream[counter_upstream2]}}')" href="#click{{counter}}" data-toggle="tab"><i class="fas fa-play" style="padding-right: 5px; padding-top: 3px;color:#cb134a"></i>Reproductor #{{counter_reproductor}}  - {{page.reproductores_upstream[counter_upstream]}}  </a></li>
+					 
+																																				 
+																																						{%endif%}
+																					 
+																												 {% endfor %}
+		
+		
+																				
+		
+					
+		
+																													
+																											 {%endif%}
+		
+		
+		
+																										{%endif%}
+		
+		
+		
+		
+																								{%endif%}
+		
+																								
+		
+																					
+																							
+																					</ul>
+																				
+																	</div>
+																	
+																	</div>
+
+																	<div class="col-12 col-md-9 col-xs-12 col-lg-9" style="padding: 0;">
+																
+																	<div class="panel-body">
+																		<div class="tab-content">
+
+																				<div class="tab-pane fade in active">
+																					<div id="opciones_videos" style="height: 350px;
+																					text-align: center;    padding: 20px;  ">
+																						<p style="color:white; font-size:18px;">Por favor seleccione una opción de reproductor. </p>
+																						<div id="ufo" class="ufo">
+																							<div class="monster" style="color: #cb134a">
+																							  <div class="bodyUfo">
+																								<div class="ear"></div>
+																								<div class="ear"></div>
+																								<div class="vampi-mouth">
+																								  <div class="vampi-tooth"></div>
+																								</div>
+																							  </div>
+																							  <div class="eye-lid">
+																								<div class="eyes">
+																								  <div class="eye"></div>
+																								</div>
+																							  </div>
+																							</div>
+																						  </div>
+
+																						  <p style="color:white; font-size:18px;"> Si algún reproductor esta caído, por favor repórtelo y lo subiremos lo más pronto posible.</p>
+
+
+																					</div>
+																					
+																						<div id="frameVideo" class="iframe-loading" style="display:none">
+																							<iframe id="myFrame" onload="$('.iframe-loading').css('background-image', 'none');" scrolling="no" style="border: none;" frameborder="0" allowfullscreen="" src=""  width="100%" height="500px"></iframe>
+																						</div>
+																				</div>
+					
+																				
+																		
+																			
+																		</div>
+																	</div>
+
+																	<div class="row" style="padding-bottom: 15px;padding-top: 15px;">
+					 
+
+					 
+															 
+																		<div class="col-md-12 col-xs-12 col-lg-12">
+								
+																			<div class="row">
+																				<div class="col-md-3 col-xs-0 col-lg-3" align="center">
+																				
+								
+																				</div>
+			
+																	
+								
+																				
+																				<div class="col-md-6 col-xs-12 col-lg-6" align="center" style="padding-top:8px;">
+																					{% if page.prev=='' %}
+																					<a style="pointer-events: none;    color: #333;    border-style: solid;" href="#" class="previous round">&#8249;</a>
+																				{%else%}
+																					<a onclick="mostrar()" style="        border: 2px #ffffff solid;;" title="Capitulo Anterior" href="{{ site.baseurl}}/{{page.url_serie_padre}}/{{page.prev}}" class="previous round">&#8249;</a>
+																				{%endif%}
+																					<a onclick="mostrar()" title="Listado de Capitulos" class="ver_capitulos" href="{{ site.baseurl}}/{{page.url_serie_padre}}"><i class="fas fa-bars" style="padding-left: 3px;"></i> </a>
+																					{% if page.proximo=='' %}
+																					<a style="pointer-events: none;    color: #333;border-style: solid;"  href="#" class="next round" title="Capitulo Siguiente">&#8250;</a>
+																				 
+																			 {%else%}
+																				 <a onclick="mostrar()" style="        border: 2px #ffffff solid;" title="Capitulo siguiente" href="{{ site.baseurl}}/{{page.url_serie_padre}}/{{page.proximo}}" class="next round">&#8250;</a>
+																				
+																			 {%endif%}
+								
+																				
+																				</div>
+								
+																				<div class="col-md-3 col-xs-0 col-lg-3" align="center">
+																				
+																					
+								
+																				</div>
+								
+																			</div>
+								
+								
+																		
+																		</div>
+			
+								
+																	</div>
+			
+																	<hr>
+			
+																	
+															 <div class="descargas5" id="descargas5" >
+			
+																<div class="row">
+																				<div class="col-md-3 col-xs-3 col-lg-3 col-3" style="text-align: center;">
+			
+																					<a id="instagram_whatsapp1" style="display:none;float: right;"   title="Compartir" class="Button"><i style="font-size: 20px;padding-top: 10px;" class="fas fa-share-alt"></i> </a> 
+																					
+																					
+																				</div>
+			
+										
+			
+																			
+			
+																				<div class="col-md-3 col-xs-3 col-lg-3 col-3 disable-select" align="center" >
+																				
+																				<a title="¿Problemas con el video? Reportar aqui" data-toggle="modal" data-target="#myModal" class="Button"><i style="font-size: 20px;padding-top: 10px;" class="fas fa-exclamation-triangle"></i></a> 
+															
+										
+																			 </div>
+			
+											
+			
+																			 <div class="col-md-3 col-xs-3 col-lg-3 col-3 disable-select" align="center" >
+																				
+																					<a id="refrescar" title="¿El video no cargo bien? Refrescar aqui" class="Button"><i style="font-size: 20px;padding-top: 10px;" class="fas fa-sync"></i></a> 
+											
+																				
+																					<script>
+			
+																						 $('#refrescar').click(function(){
+																								var myFrame = document.getElementById("myFrame");
+																								if(myFrame)
+																								{
+																									$('#myFrame').attr('src', function (i, val) {return val;});
+			
+																								}
+			
+																								
+			
+																								
+																				
+																							
+																						});
+			
+																					
+																				
+																				</script>
+																				 </div>
+			
+			
+																			
+			
+																			 <div class="col-md-3 col-xs-3 col-lg-3 col-3" style="text-align: center;">
+			
+																				<a id="instagram_whatsapp2" style="display:none;float: left;" href="https://api.whatsapp.com/send?text=https://breaktimetv2.github.io{{ page.url }}" data-action="share/whatsapp/share" title="Compartir en whatsapp" class="Button texto_post"><i style="font-size: 20px;padding-top: 10px;" class="fab fa-whatsapp"></i> </a> 
+																					
+																				</div>
+
+																				
+
+			
+			
+																</div>
+						
+						
+															</div>
+			
+			
+															<hr>
+																</div>
+															</div>
+																</div>
+					
+																
+																
+					
+									
+					
+															</div>
+					
+														 
+					
+															
+					
+														   
+														</div>
+
+														
+													
+
+													
+
+														<div class="col-12 col-m-12 col-lg-12">
+
+																<h3 id="comments" class="derecha">Comentarios</h3>
+																<div id="botonCargarComentarios" align="center">
+																		<a onclick="cargarComentarios()" class="ver_capitulos"  href="#comments">Cargar comentarios </a>
+																</div>
+	
+																<div id="comentarios_facebook" style="display:none">
+	
+																		<img id="gif" alt="Cargando comentarios" src="/load.gif" style="width: 50px;height: 80px;"/>
+																		<p id="comentario-gif" style="color:white; font-size: 16px; text-align:center;">Cargando comentarios, por favor espere...</p>
+																			<div  class="fb-comments" style="margin-top: 45px;"  data-colorscheme="light" data-href="{{ site.url }}{{ page.url }}" data-width="100%" data-numposts="5">
+																			</div>
+	
+	
+																</div>
+
+														</div>
+
+														
+														
+										
+															
+				
+													
+				
+														 
+														
+					
+					
+					
+					
+													 </div>
+													 
+																<div class="col-md-12 col-xs-12 col-lg-1" style="padding:0;">
+
+																	</div>
+				
+														</div>
+											
+											
+
+					 </article> 
+		
+				</main>
+
+
+
+				
+						</section>
+
+						<div class="navbar-bottom" id="navbar-abajo" >
+							<div id="menu_abajo" class="row flex-grid">
+
+															{% if page.url == "/" %}
+															<div class="box-item col-xs-2 col-sm-2 col-md-2 col-lg-2 shown" style="padding:0; "> 
+																											<a onclick="mostrar()" style="color: white;" href="{{ site.baseurl }}/"><i class="fas fa-home" style="line-height: 1.5;font-size: 18px;"> <br> <p style="font-size:10px"> Inicio </p></i></a>
+
+															</div>
+															{% else %}
+
+															<div class="box-item col-xs-2 col-sm-2 col-md-2 col-lg-2 shown" style="padding:0;"> 
+																							<a onclick="mostrar()" href="{{ site.baseurl }}/"><i class="fas fa-home" style="line-height: 1.5;font-size: 18px;"> <br> <p style="font-size:10px"> Inicio </p></i></a>
+
+															</div>
+
+															{% endif %}
+
+															{% if page.url == "/contenido/" %}
+															<div class="box-item col-xs-2 col-sm-2 col-md-2 col-lg-2 shown" style="padding:0; "> 
+																											<a onclick="mostrar()" style="color: white;" href="{{ site.baseurl }}/contenido/"><i class="fas fa-compass" style="line-height: 1.5;font-size: 18px;"> <br> <p style="font-size:10px"> Explorar </p></i></a>
+
+															</div>
+															{% else %}
+
+															<div class="box-item col-xs-2 col-sm-2 col-md-2 col-lg-2 shown" style="padding:0;"> 
+																							<a onclick="mostrar()" href="{{ site.baseurl }}/contenido/"><i class="fas fa-compass" style="line-height: 1.5;font-size: 18px;"> <br> <p style="font-size:10px"> Explorar </p></i></a>
+
+															</div>
+
+															{% endif %}
+	
+															{% if page.url == "/peliculas" %}
+															<div class="box-item col-xs-2 col-sm-2 col-md-2 col-lg-2 shown" style="padding:0; "> 
+																											 <a onclick="mostrar()" style="color: white;" href="{{ site.url }}{{ site.baseurl }}/peliculas"><i class="fas fa-film" style="line-height: 1.5;font-size: 18px;"> <br> <p style="font-size:10px"> Peliculas </p></i></a>
+
+															</div>
+															{% else %}
+
+															<div class="box-item col-xs-2 col-sm-2 col-md-2 col-lg-2 shown" style="padding:0;"> 
+																							<a onclick="mostrar()" href="{{ site.url }}{{ site.baseurl }}/peliculas"><i class="fas fa-film" style="line-height: 1.5;font-size: 18px;"> <br> <p style="font-size:10px"> Peliculas </p></i></a>
+
+															 </div>
+
+
+															{% endif %}
+
+															{% if page.url == "/series" %}
+															<div class="box-item col-xs-2 col-sm-2 col-md-2 col-lg-2 shown" style="padding:0; "> 
+																											 <a onclick="mostrar()" style="color: white;" href="{{ site.url }}{{ site.baseurl }}/series" ><i class="fas fa-file-video" style="line-height: 1.5;font-size: 18px;"> <br> <p style="font-size:10px"> Series </p></i></a>
+
+															</div>
+															{% else %}
+															<div class="box-item col-xs-2 col-sm-2 col-md-2 col-lg-2 shown" style="padding:0;"> 
+																							<a onclick="mostrar()" href="{{ site.url }}{{ site.baseurl }}/series" ><i class="fas fa-file-video" style="line-height: 1.5;font-size: 18px;"> <br> <p style="font-size:10px" > Series </p></i></a>
+
+															</div>
+
+
+															{% endif %}
+
+															{% if page.url == "/historial" %}
+															<div class="box-item col-xs-2 col-sm-2 col-md-2 col-lg-2 shown" style="padding:0; "> 
+																											 <a onclick="mostrar()" style="color: white;" href="{{ site.url }}{{ site.baseurl }}/historial" ><i class="fas fa-clock" style="line-height: 1.5;font-size: 18px;"></i><br><p style="font-size:10px"> Historial </p></a>
+
+															</div>
+															{% else %}
+															<div class="box-item col-xs-2 col-sm-2 col-md-2 col-lg-2 shown" style="padding:0;"> 
+																							<a onclick="mostrar()" href="{{ site.url }}{{ site.baseurl }}/historial" ><i class="fas fa-clock" style="line-height: 1.5;font-size: 18px;"></i><br><p style="font-size:10px"> Historial </p></a>
+
+															</div>
+
+
+															{% endif %}
+
+
+															{% if page.url == "/informacion" %}
+															<div class="box-item col-xs-2 col-sm-2 col-md-2 col-lg-2 shown" style="padding:0; "> 
+																											 <a onclick="mostrar()" style="color: white;" href="{{ site.url }}{{ site.baseurl }}/informacion" ><i class="fas fa-bars" style="line-height: 1.5;font-size: 18px;"></i><br> <p style="font-size:10px">Nosotros</p></a>
+
+															</div>
+															{% else %}
+															<div class="box-item col-xs-2 col-sm-2 col-md-2 col-lg-2 shown" style="padding:0;"> 
+																							<a onclick="mostrar()" href="{{ site.url }}{{ site.baseurl }}/informacion" ><i class="fas fa-bars" style="line-height: 1.5;font-size: 18px;"></i> <br> <p style="font-size:10px">Nosotros</p></a>
+
+															</div>
+
+
+															{% endif %}
+
+
+							</div>
+						
+						
+											 
+			 </div>
+				 
+				 <script>
+
+																			function cargarComentarios(){
+																							document.getElementById("botonCargarComentarios").style.display = "none";
+																							document.getElementById("comentarios_facebook").style.display = "block";
+																							
+
+																							loadAPI();
+
+																							
+																						}
+
+
+																								function loadAPI() {
+																											var js = document.createElement('script');
+																											js.src = 'https://connect.facebook.net/es_ES/sdk.js#xfbml=1&version=v4.0&appId=491895904626108&autoLogAppEvents=1';
+																											document.body.appendChild(js);
+
+																											window.fbAsyncInit = function(){
+																												//FB.init({ status: false, cookie: true, xfbml: true });
+																												FB.Event.subscribe("xfbml.render", function(){
+																												document.getElementById("gif").style.display = "none";
+																												document.getElementById("comentario-gif").style.display = "none";
+																												});
+																											};
+
+																											
+																											}
+									
+									
+									</script>
+						
+						
+        
+				{% include footer-post2.html %}
+
+
+
+				
+
+
+		
+
+				{% else %}
+
+				<div style="margin: 0px auto;  max-width: 600px; text-align: center; padding-top: 60px;">
+						<img style="width: 250px;" src="/assets/img/gif-mantenimiento.gif" width="100%" alt="Página no encontrada">
+						<p style="color:white; font-size:25px; padding-top: 25px;"><strong>Estamos en Mantenimiento</strong></p>
+						<p style="color:white;     padding-top: 25px;     font-size: 23px;">Lo sentimos, en estos momentos estamos realizando un mantenimiento a nuestras peliculas y series, regresaremos lo más pronto posible</p>
+					</div>
+
+
+			
+			</div>
+			{% endif %}
+
+
+			{% else %}
+
+			{% include mantenimiento.html %}
+
+
+			{% endif %}
+			
+	<!-- Modal 
+			{% assign existe_reproductor = page.reproductores_fembed | size %}
+
+			{% if  existe_reproductor > 0 %}
+
+			
+
+		
+
+		
+			<div class="modal fade"  id="exampleModal1"  role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+				<div class="modal-content">
+					<div class="modal-header">
+					<h4 class="modal-title" id="titleModal1">Descargar contenido</h4>
+	
+					
+					<button  style="    margin-top: -30px;    font-size: 30px;" type="button" class="close" data-dismiss="modal" aria-label="Close">
+						<span aria-hidden="true">&times;</span>
+					</button>
+	
+					
+					</div>
+
+					
+				
+					<div class="modal-body">
+							{% assign counter_impares=1 %}
+						{% for item in page.reproductores_fembed %}
+						{% assign remainder = counter_impares | modulo: 2 %}
+						{% if remainder == 0 %}
+
+						
+						{% else %}	 
+						<p style="color:white"></p>
+						<button onclick="descargarVideo('rj0enhe6dpy1m00')">Click me</button>
+						{% endif %}	 
+
+						{% assign counter_impares=counter_impares | plus:1 %}
+						{% endfor %}	  
+
+
+					</div>
+				</div>
+			</div>
+		</div>
+	
+
+		{% endif %}
+			-->
+        
+    </body>
+</html>

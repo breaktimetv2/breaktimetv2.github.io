@@ -1,0 +1,335 @@
+---
+layout: main
+title: "BreakTimeTv - Peliculas y Series Online"
+description: Miles de películas y series para disfrutarlo de manera online en calidad HD, Latino, Castellano y Subtitulado, sin cortes, sin publicidad y gratis solo en BreakTimeTV
+principal: "si"
+image_banner: 'https://i.ibb.co/BK0nF6B/bannercito-min.jpg'
+---
+
+{% assign min = 0 %}
+{% assign max = site.posts.size %}
+{% assign diff = max | minus: min %}
+{% assign randomNumber = "now" | date: "%N" | modulo: diff | plus: min %}
+<main  class="home" id="post" role="main" itemprop="mainContentOfPage" itemscope="itemscope" itemtype="http://schema.org/Blog">
+	<!-- Swiper -->
+	<div id="carrosuel" class="swiper-container" style="display:none">
+			<div class="swiper-wrapper">
+
+					{% assign post_news = site.posts %}
+
+					{% assign count = 0 %}
+		   
+					{% for post in post_news limit:6 %}
+					
+						
+
+						  <div class="swiper-slide">
+
+								<div class="parallax-bg" style="background-image:linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,1) 8%, rgba(0,0,0,0.5) 100%),url({{post.image_banner}})" data-swiper-parallax="-23%"></div>
+							   <div class="title" data-swiper-parallax="-300">
+
+									<h1 class="h1Video" align="justify">{{ post.title }}</h1>
+								   
+								</div>
+							   
+							   <div class="text" data-swiper-parallax="-100">
+									<h3 class="h2Video" align="justify">{{ post.description_corta }}</h3>
+							   </div>
+							   <div class="subtitle" data-swiper-parallax="-200">
+
+									{% if post.estrellas =='1' %}
+									<span class="fa fa-star tamanio checked" ></span>
+									<span class="fa fa-star tamanio"></span>
+									<span class="fa fa-star tamanio"></span>
+									<span class="fa fa-star tamanio"></span>
+									<span class="fa fa-star tamanio"></span>
+									{%else%}
+									{% if post.estrellas =='2' %}
+									<span class="fa fa-star tamanio checked"></span>
+									<span class="fa fa-star tamanio checked"></span>
+									<span class="fa fa-star tamanio"></span>
+									<span class="fa fa-star tamanio"></span>
+									<span class="fa fa-star tamanio"></span> 
+									{%else%}
+									{% if post.estrellas =='3' %}
+									<span class="fa fa-star tamanio checked"></span>
+									<span class="fa fa-star tamanio checked"></span>
+									<span class="fa fa-star tamanio checked"></span>
+									<span class="fa fa-star tamanio"></span>
+									<span class="fa fa-star tamanio"></span>
+									{%else%}
+									{% if post.estrellas =='4' %}
+									<span class="fa fa-star tamanio checked"></span>
+									<span class="fa fa-star tamanio checked"></span>
+									<span class="fa fa-star tamanio checked"></span>
+									<span class="fa fa-star tamanio checked"></span>
+									<span class="fa fa-star tamanio"></span>
+									{%else%}
+									{% if post.estrellas =='5' %}
+									<span class="fa fa-star tamanio checked"></span>
+									<span class="fa fa-star tamanio checked"></span>
+									<span class="fa fa-star tamanio checked"></span>
+									<span class="fa fa-star tamanio checked"></span>
+									<span class="fa fa-star tamanio checked"></span>
+									{%endif%}
+									{%endif%}
+									{%endif%}
+									{%endif%}
+									{%endif%}
+								<span class="tamanio_left"> {{ post.anio }} </span>
+								<span class="tamanio_left clasificacion">{{ post.idioma }}</span>
+								<span class="tamanio_left"> {{ post.duracion }} </span>
+								<span class="tamanio_left clasificacion">{{ post.calidad }}</span>
+								<span class="tamanio_left clasificacion">PG: {{ post.clasificacion }}</span>
+
+								<div class="col-lg-12">
+										<a onclick="mostrar()" class="header-video__play-trigger2" href="{{ post.url | prepend: site.baseurl }}"><i class="fas fa-play" style="padding-right: 5px;"></i> Ver Ahora</a>
+								</div>    
+								<div class="col-lg-12" align="center">
+										<a class="header-video__play-trigger3" href="#ver">Ver Más Contenido <i class="fas fa-long-arrow-alt-down" style="padding-left: 5px;"></i></a>
+								</div>  
+
+							   </div>
+							 </div>
+
+
+
+					{%endfor%}			
+						
+	
+			</div>
+			<!-- Add Pagination -->
+			<div class="swiper-pagination swiper-pagination-white"></div>
+			<!-- Add Navigation -->
+			<div class="swiper-button-prev swiper-button-white"></div>
+			<div class="swiper-button-next swiper-button-white"></div>
+		  </div>
+	<!--
+
+		<div class="video" id="video-reproduccion" style="display:none">
+	 <section class="content-section video-section">
+	 <a id="bgndVideo" class="player" data-property="{videoURL:'{{site.posts[randomNumber].trailer}}',containment:'.video-section', quality:'hd720', autoPlay:true,  optimizeDisplay:true, mute:false, opacity:1, useOnMobile:false}"></a>
+						 <div class="container" style="    padding-top: 35px;">
+								 <div class="col-lg-12">
+									 <h1 class="h1Video" align="justify">{{site.posts[randomNumber].title}} </h1>
+								 </div>  
+								 <div style="margin-left: 70px;" class="col-lg-12">
+									 <h3 class="h2Video" align="justify">{{site.posts[randomNumber].description_corta}}</h3>
+									 {% if site.posts[randomNumber].estrellas =='1' %}
+										 <span class="fa fa-star tamanio checked" ></span>
+										 <span class="fa fa-star tamanio"></span>
+										 <span class="fa fa-star tamanio"></span>
+										 <span class="fa fa-star tamanio"></span>
+										 <span class="fa fa-star tamanio"></span>
+										 {%else%}
+										 {% if site.posts[randomNumber].estrellas =='2' %}
+										 <span class="fa fa-star tamanio checked"></span>
+										 <span class="fa fa-star tamanio checked"></span>
+										 <span class="fa fa-star tamanio"></span>
+										 <span class="fa fa-star tamanio"></span>
+										 <span class="fa fa-star tamanio"></span> 
+										 {%else%}
+										 {% if site.posts[randomNumber].estrellas =='3' %}
+										 <span class="fa fa-star tamanio checked"></span>
+										 <span class="fa fa-star tamanio checked"></span>
+										 <span class="fa fa-star tamanio checked"></span>
+										 <span class="fa fa-star tamanio"></span>
+										 <span class="fa fa-star tamanio"></span>
+										 {%else%}
+										 {% if site.posts[randomNumber].estrellas =='4' %}
+										 <span class="fa fa-star tamanio checked"></span>
+										 <span class="fa fa-star tamanio checked"></span>
+										 <span class="fa fa-star tamanio checked"></span>
+										 <span class="fa fa-star tamanio checked"></span>
+										 <span class="fa fa-star tamanio"></span>
+										 {%else%}
+										 {% if site.posts[randomNumber].estrellas =='5' %}
+										 <span class="fa fa-star tamanio checked"></span>
+										 <span class="fa fa-star tamanio checked"></span>
+										 <span class="fa fa-star tamanio checked"></span>
+										 <span class="fa fa-star tamanio checked"></span>
+										 <span class="fa fa-star tamanio checked"></span>
+										 {%endif%}
+										 {%endif%}
+										 {%endif%}
+										 {%endif%}
+										 {%endif%}
+									 <span class="tamanio_left"> {{ site.posts[randomNumber].anio }} </span>
+									 <span class="tamanio_left clasificacion">{{ site.posts[randomNumber].idioma }}</span>
+									 <span class="tamanio_left"> {{ site.posts[randomNumber].duracion }} </span>
+									 <span class="tamanio_left clasificacion">{{ site.posts[randomNumber].calidad }}</span>
+									 <span class="tamanio_left clasificacion">PG: {{ site.posts[randomNumber].clasificacion }}</span>
+								 </div>  
+								 <div class="col-lg-12">
+										 <a onclick="mostrar()" class="header-video__play-trigger2" href="{{ site.posts[randomNumber].url | prepend: site.baseurl }}"><i class="fas fa-play" style="padding-right: 5px;"></i> Ver Ahora</a>
+								 </div>    
+								 <div class="col-lg-12" align="center">
+										 <a class="header-video__play-trigger3" href="#ver">Ver Más Contenido <i class="fas fa-long-arrow-alt-down" style="padding-left: 5px;"></i></a>
+								 </div>  
+							  	    
+						 </div>
+	 </section>
+ </div>
+
+
+
+	-->
+	
+
+
+ <div class="div-movil" id="contenedor-movil" >
+
+
+
+	
+
+
+		<div cold-md="12" id="ver">
+
+				<div align="center">
+				
+
+				<h2 id="peliculas_series_texto" class="top_h3"> Estrenados recientemente </h2>
+
+				</div>
+		</div>
+
+
+
+ <div class="row flex-grid">
+
+		<div class="col-12 col-md-1 col-lg-1">
+
+			
+			</div>
+
+			<div  id="grid" class="col-12 col-md-10 col-lg-10" style="padding: 0;">
+
+		 {% assign post_news = site.posts %}
+
+		 {% assign count = 0 %}
+
+		 {% for post in post_news limit:18 %}
+		 
+			   {% assign count = count | plus: 1 %}
+			   
+				
+
+					<article  data-tooltip-content="#{{count}}" class="tooltipster box-item col-xs-4 col-sm-2 col-md-2 col-lg-2" itemscope="itemscope" itemtype="http://schema.org/BlogPosting" itemprop="blogPost">
+						<div class="box">
+						<div class="box-body">
+								{% if post.image_carousel %}
+										<div class="cover">
+												<a  onclick="mostrar()" href="{{ post.url | prepend: site.baseurl }}">
+												<img alt="{{ post.title }}"  src="../../assets/img/placeholder-min.png" data-url="{{ post.image_carousel }}" class="preload ">
+												</a>
+												{% if post.category == 'series' %}
+														<div class="series"> Serie </div>
+														{% else %}
+														<div class="peliculas"> Pelicula </div>
+														{% endif %}
+														{% if post.idioma == 'Latino' %}
+
+																		<div class="latino" title="Audio Latino"></div>
+
+
+														{% else %}
+																		{% if post.idioma == 'Castellano' %}
+
+																		<div class="castellano" title="Audio Castellano"></div>
+
+																		{% else %}
+																		{% if post.idioma == 'Latino/Castellano' %}
+																		<div class="latino-castellano" title="Audio Latino y Castellano"></div>
+																		{% else %}
+
+																		{% if post.idioma == 'Latino/Castellano/Subtitulado' %}
+																		<div class="latino-castellano-subtitulado" title="Audio Latino, Castellano y Subtitulado"></div>
+																		{% else %}
+
+																		{% if post.idioma == 'Latino/Subtitulado' %}
+																		<div class="latino-subtitulado" title="Audio Latino y Subtitulado"></div>
+																		{% else %}
+
+																		{% if post.idioma == 'Castellano/Subtitulado' %}
+																		<div class="castellano-subtitulado" title="Audio Castellano y Subtitulado"></div>
+																		{% else %}
+
+																		<div class="subtitulado" title="Audio Subtitulado"></div>
+
+																		{% endif %}
+
+																		{% endif %}
+																		{% endif %}
+
+																		{% endif %}
+																		{% endif %}
+
+																{% endif %}
+												<div class="titulo"> {{ post.calidad }} </div>
+										</div>
+								{% endif %}
+								<div class="box-info">
+										<div class="w3l-movie-text">
+												<h6>
+														<a onclick="mostrar()"   class="post-link" href="{{ post.url | prepend: site.baseurl }}">
+																		{{ post.title }}
+														</a>
+												</h6>
+										</div>
+								</div>
+						</div>
+						</div>
+			</article>
+
+			<div class="tooltip_templates" style="display:none; width:300px" >
+			<span id="{{count}}" style=" width:300px">
+					<p style="color:white;font-weight: bold; text-align: center">	{{ post.title }}</p>
+					<p style="color:white;    font-size: 15px;padding: 0;    text-align: left;"><span style="font-weight: bold">Año: </span>{{post.anio}}</p>
+																		<p style="color:white;    font-size: 15px;
+																		padding: 0;    text-align: left;"><span style="font-weight: bold">Calidad: </span>{{post.calidad}}</p>
+
+																		<p style="color:white;    font-size: 15px;
+																		padding: 0;    text-align: left;"><span style="font-weight: bold">Duración: </span>{{post.duracion}}</p>
+
+																		<p style="color:white;    font-size: 15px;
+																		padding: 0;    text-align: left;"><span style="font-weight: bold">Clasificación: </span>{{post.clasificacion}}</p>
+						<p style="color:white;font-size: 15px;
+						padding:0;    text-align: left;"><span style="font-weight: bold">Géneros: </span>{{post.genero}}</p>
+					<div class="col-md-12 col-lg-12 col-xs-12" style="    padding:0;width:300px; margin-top:15px">
+							<p style="color:white;    font-size: 15px;
+							padding: 0px;    text-align: left;width:300px">{{post.description_corta}}</p>
+
+					</div>
+
+				</span>
+			</div>
+				
+			{%endfor%}			
+			
+			<div class="col-md-12 col-xs-12 col-lg-12" style="margin-top: 15px;    margin-bottom: 5px;" align="center">
+				<a onclick="mostrar()" class="ver_capitulos" target="_self" href="{{ site.baseurl}}/contenido"><i class="fas fa-eye" style="padding-right: 10px;">  </i>Ver más contenido </a>
+				</div>
+
+			</div>
+
+				<div class="col-12 col-md-1 col-lg-1">
+
+			
+					</div>
+
+			
+			
+			
+			
+			</div>
+			
+</div>
+
+ 
+
+																		 
+
+
+
+</main>
