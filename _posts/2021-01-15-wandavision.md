@@ -28,6 +28,7 @@ chapters:
     capitulo-5: ["On a Very Special Episode", "capitulo-5/", "5"]
     capitulo-6: ["Espectacular Estreno de Halloween", "capitulo-6/", "6"]
     capitulo-7: ["Breaking the Fourth Wall", "capitulo-7/", "7"]
+    capitulo-8: ["Previously On", "capitulo-8/", "8"]
 clasificacion: '+5'
 tags:
 - Ciencia-Ficcion
