@@ -29,6 +29,7 @@ chapters:
     capitulo-6: ["Espectacular Estreno de Halloween", "capitulo-6/", "6"]
     capitulo-7: ["Breaking the Fourth Wall", "capitulo-7/", "7"]
     capitulo-8: ["Previously On", "capitulo-8/", "8"]
+    capitulo-9: ["The Series Finale", "capitulo-9/", "9"]
 clasificacion: '+5'
 tags:
 - Ciencia-Ficcion
