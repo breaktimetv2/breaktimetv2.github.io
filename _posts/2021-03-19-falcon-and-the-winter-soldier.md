@@ -22,6 +22,7 @@ sandbox: allow-same-origin allow-forms
 temporadas: ["Temporada 1"]
 chapters:
     capitulo-1: ["Nuevo Orden Mundial", "capitulo-1/", "1"]
+    capitulo-2: ["Episodio 2", "capitulo-2/", "2"]
 clasificacion: '+5'
 tags:
 - Ciencia-Ficcion

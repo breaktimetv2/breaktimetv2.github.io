@@ -6,7 +6,7 @@ category: 'series'
 capitulo: 'yes'
 anio: '2021'
 prev: ''
-proximo: ''
+proximo: 'capitulo-2'
 sandbox: allow-same-origin allow-forms
 idioma: 'Latino'
 calidad: 'Full HD'
