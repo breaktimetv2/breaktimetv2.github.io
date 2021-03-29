@@ -12,7 +12,7 @@ descargas: 'no'
 idioma: 'Latino'
 capitulo: ''
 anio: '2021'
-episodios: '1'
+episodios: '2'
 calidad: 'Full HD'
 estrellas: '5'
 genero: Ciencia Ficción, Acción, Drama, SuperHeroes
